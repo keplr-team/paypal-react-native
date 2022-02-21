@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* PaypalReactNative.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* PaypalReactNative.m */; };
-		F4FF95D7245B92E800C19C63 /*  PaypalReactNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  PaypalReactNative.swift */; };
-
+		18BE95E682DEBC0B625E260B /* libPods-PaypalReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 633344D25B60AEB6A81867AC /* libPods-PaypalReactNative.a */; };
+		D9B66ED327BF88180032A4D1 /* RNPaypal.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B66ED227BF88180032A4D1 /* RNPaypal.m */; };
+		D9B66ED527BF885B0032A4D1 /* RNPaypalSDKModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B66ED427BF885B0032A4D1 /* RNPaypalSDKModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,11 +26,12 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libPaypalReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPaypalReactNative.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
-		B3E7B5891CC2AC0600A0062D /* PaypalReactNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalReactNative.m; sourceTree = "<group>"; };
+		156713B0EA85F06472351FA6 /* Pods-PaypalReactNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaypalReactNative.release.xcconfig"; path = "Target Support Files/Pods-PaypalReactNative/Pods-PaypalReactNative.release.xcconfig"; sourceTree = "<group>"; };
+		633344D25B60AEB6A81867AC /* libPods-PaypalReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PaypalReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B57568FC93141C06C79F9BFA /* Pods-PaypalReactNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaypalReactNative.debug.xcconfig"; path = "Target Support Files/Pods-PaypalReactNative/Pods-PaypalReactNative.debug.xcconfig"; sourceTree = "<group>"; };
+		D9B66ED227BF88180032A4D1 /* RNPaypal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPaypal.m; sourceTree = "<group>"; };
+		D9B66ED427BF885B0032A4D1 /* RNPaypalSDKModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNPaypalSDKModule.swift; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* PaypalReactNative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaypalReactNative-Bridging-Header.h"; sourceTree = "<group>"; };
-		F4FF95D6245B92E800C19C63 /* PaypalReactNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaypalReactNative.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BE95E682DEBC0B625E260B /* libPods-PaypalReactNative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,16 +54,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3E236D4AA8C6804E8A5E2B39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B57568FC93141C06C79F9BFA /* Pods-PaypalReactNative.debug.xcconfig */,
+				156713B0EA85F06472351FA6 /* Pods-PaypalReactNative.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
-				F4FF95D6245B92E800C19C63 /* PaypalReactNative.swift */,
-				B3E7B5891CC2AC0600A0062D /* PaypalReactNative.m */,
+				D9B66ED427BF885B0032A4D1 /* RNPaypalSDKModule.swift */,
+				D9B66ED227BF88180032A4D1 /* RNPaypal.m */,
 				F4FF95D5245B92E700C19C63 /* PaypalReactNative-Bridging-Header.h */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
+				3E236D4AA8C6804E8A5E2B39 /* Pods */,
+				6E0F7925A320CAA41ED67C68 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		6E0F7925A320CAA41ED67C68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				633344D25B60AEB6A81867AC /* libPods-PaypalReactNative.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +90,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "PaypalReactNative" */;
 			buildPhases = (
+				6463FE46BC4478BA0147EA65 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -117,15 +136,38 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6463FE46BC4478BA0147EA65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PaypalReactNative-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				F4FF95D7245B92E800C19C63 /* PaypalReactNative.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* PaypalReactNative.m in Sources */,
-
+				D9B66ED327BF88180032A4D1 /* RNPaypal.m in Sources */,
+				D9B66ED527BF885B0032A4D1 /* RNPaypalSDKModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +269,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B57568FC93141C06C79F9BFA /* Pods-PaypalReactNative.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -238,16 +281,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PaypalReactNative;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "PaypalReactNative-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156713B0EA85F06472351FA6 /* Pods-PaypalReactNative.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -259,10 +301,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PaypalReactNative;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "PaypalReactNative-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};

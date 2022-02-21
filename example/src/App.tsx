@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Alert, Platform, StyleSheet, View } from 'react-native';
+import { Alert, Platform, SafeAreaView, StyleSheet, View } from 'react-native';
 import { PaypalButton } from 'paypal-react-native';
 
 const clientId =
@@ -14,37 +14,39 @@ const returnUrl =
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <PaypalButton
-        style={{ height: 52, width: 250 }}
-        config={{ clientId, returnUrl, live: false }}
-        variant={{
-          color: 'white',
-          label: 'payWith',
-          size: 'full',
-          shape: 'rounded',
-        }}
-        order={{
-          referenceId: 'cart id',
-          amount: '100',
-          currency: 'EUR',
-        }}
-        shipping={{
-          address: '10 rue de rivoli',
-          city: 'Paris',
-          postalCode: '75000',
-          countryCode: 'FR',
-        }}
-        onApprove={({ nativeEvent }) => {
-          console.log('approved', nativeEvent.orderId);
-          Alert.alert('Approved with id ' + nativeEvent.orderId);
-        }}
-        onError={({ nativeEvent }) => {
-          console.log('error', nativeEvent.error);
-          Alert.alert('error ' + nativeEvent.error);
-        }}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <PaypalButton
+          style={{ height: 52, width: 250 }}
+          config={{ clientId, returnUrl, live: false }}
+          variant={{
+            color: 'white',
+            label: 'payWith',
+            size: 'full',
+            shape: 'rounded',
+          }}
+          order={{
+            referenceId: 'cart id',
+            amount: '100',
+            currency: 'EUR',
+          }}
+          shipping={{
+            address: '10 rue de rivoli',
+            city: 'Paris',
+            postalCode: '75000',
+            countryCode: 'FR',
+          }}
+          onApprove={({ nativeEvent }) => {
+            console.log('approved', nativeEvent.orderId);
+            Alert.alert('Approved with id ' + nativeEvent.orderId);
+          }}
+          onError={({ nativeEvent }) => {
+            console.log('error', nativeEvent.error);
+            Alert.alert('error ' + nativeEvent.error);
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
