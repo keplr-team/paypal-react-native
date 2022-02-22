@@ -1,6 +1,6 @@
 {
   "name": "@keplr/paypal-react-native",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "RN library using Paypal Checkout SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -88,7 +88,7 @@
       "tagName": "${version}"
     },
     "npm": {
-      "publish": true
+      "publish": false
     },
     "github": {
       "release": true
