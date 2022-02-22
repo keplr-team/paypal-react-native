@@ -1,5 +1,5 @@
 {
-  "name": "paypal-react-native",
+  "name": "@keplr/paypal-react-native",
   "version": "0.0.1",
   "description": "RN library using Paypal Checkout SDK",
   "main": "lib/commonjs/index",
@@ -37,7 +37,7 @@
     "android"
   ],
   "repository": "https://github.com/keplr-team/paypal-react-native.git",
-  "author": "keplr-team <all@gokepler.fr> (https://github.com/keplr-team/)",
+  "author": "keplr-team <hello@gokepler.fr> (https://github.com/keplr-team/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/keplr-team/paypal-react-native.git/issues"
@@ -85,8 +85,7 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
+      "tagName": "${version}"
     },
     "npm": {
       "publish": true
@@ -96,7 +95,8 @@
     },
     "plugins": {
       "@release-it/conventional-changelog": {
-        "preset": "angular"
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
       }
     }
   },
