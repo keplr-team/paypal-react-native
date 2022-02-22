@@ -1,3 +1,10 @@
+## [0.1.3](https://github.com/keplr-team/paypal-react-native/compare/0.1.2...0.1.3) (2022-02-22)
+
+
+### Bug Fixes
+
+* add yarn install on publish workflow ([b66b775](https://github.com/keplr-team/paypal-react-native/commit/b66b775c8f9a4311a3fb2360bdca1d88f9e0b8e6))
+
 ## [0.1.2](https://github.com/keplr-team/paypal-react-native/compare/0.1.1...0.1.2) (2022-02-22)
 
 
