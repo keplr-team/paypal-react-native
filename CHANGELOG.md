@@ -10,4 +10,6 @@
 ### Features
 
 * build ios paypal ([d94f5df](https://github.com/keplr-team/paypal-react-native/commit/d94f5df73f4d1e3d85e3225e5dd239f246dab51c))
+* build paypal button on android ([a3e91f2](https://github.com/keplr-team/paypal-react-native/commit/a3e91f254de2846f1a13b6be41a1f14c3a82a30e))
+
 
