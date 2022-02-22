@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/keplr-team/paypal-react-native/compare/0.1.0...0.1.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* workflow github and changelog ([512d35d](https://github.com/keplr-team/paypal-react-native/commit/512d35db78c64b531b90809df0e62e2c4b8a1ef2))
+
 # 0.1.0 (2022-02-22)
 
 
