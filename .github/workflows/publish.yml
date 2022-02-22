@@ -13,6 +13,7 @@ jobs:
         with: # does not publish if missing
           node-version: 16 # does not publish if missing
           registry-url: 'https://registry.npmjs.org' # does not publish if missing
+      - run: yarn install
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }} # copy the token to the .npmrc
