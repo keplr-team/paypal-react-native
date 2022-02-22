@@ -1,3 +1,10 @@
+## [0.1.2](https://github.com/keplr-team/paypal-react-native/compare/0.1.1...0.1.2) (2022-02-22)
+
+
+### Bug Fixes
+
+* remove prepare script ([1ac6789](https://github.com/keplr-team/paypal-react-native/commit/1ac6789357e976465d953cfdfa8dd9dc6520de55))
+
 ## [0.1.1](https://github.com/keplr-team/paypal-react-native/compare/0.1.0...0.1.1) (2022-02-22)
 
 
