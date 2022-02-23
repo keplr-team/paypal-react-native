@@ -1,3 +1,10 @@
+## [0.1.5](https://github.com/keplr-team/paypal-react-native/compare/0.1.4...0.1.5) (2022-02-23)
+
+
+### Bug Fixes
+
+* export types ([25e0de7](https://github.com/keplr-team/paypal-react-native/commit/25e0de742ebdc093c8166dec146a3a95b3fa667f))
+
 ## [0.1.4](https://github.com/keplr-team/paypal-react-native/compare/0.1.3...0.1.4) (2022-02-23)
 
 
