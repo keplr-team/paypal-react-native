@@ -140,7 +140,7 @@ class RNPaypalButton : UIView {
       invoiceId: self.invoiceId == nil ? nil : self.invoiceId,
       shipping: shipping
     )
-      let applicationContext = OrderApplicationContext.init(shippingPreference: OrderApplicationContext.ShippingPreference.setProvidedAddress, userAction: OrderApplicationContext.UserAction.payNow)
+      let applicationContext = OrderApplicationContext.init(locale: "fr-FR", shippingPreference: OrderApplicationContext.ShippingPreference.setProvidedAddress, userAction: OrderApplicationContext.UserAction.payNow)
     let order = OrderRequest(intent: .authorize, purchaseUnits: [purchaseUnit], applicationContext: applicationContext)
     createOrderAction.create(order: order)
   }
