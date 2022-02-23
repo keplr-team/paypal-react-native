@@ -28,6 +28,7 @@ class RNPaypalButtonView: LinearLayout {
     private var amountValue: String = "0.0"
     private var currencyCode: CurrencyCode = CurrencyCode.EUR
     private var referenceId: String? = null
+    private var invoiceId: String? = null
     //shipping config
     private var address: String? = null
     private var city: String? = null
@@ -61,6 +62,7 @@ class RNPaypalButtonView: LinearLayout {
                         listOf(
                             PurchaseUnit(
                                 referenceId = this.referenceId,
+                                invoiceId = this.invoiceId,
                                 amount = Amount(currencyCode = this.currencyCode, value = this.amountValue),
                                 shipping = Shipping(Address(addressLine1 = this.address, adminArea2 = this.city, postalCode = this.postalCode, countryCode = this.countryCode))
                             )
@@ -143,6 +145,10 @@ class RNPaypalButtonView: LinearLayout {
 
     fun setReferenceId(referenceId: String?) {
         this.referenceId = referenceId
+    }
+
+    fun setInvoiceId(invoiceId: String?) {
+      this.invoiceId = invoiceId
     }
 
     fun setAddress(address: String?) {

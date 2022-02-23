@@ -19,6 +19,7 @@ export type PaypalButtonShipping = {
 };
 export type PaypalButtonOrder = {
   referenceId: string;
+  invoiceId: string;
   amount: string;
   currency: string;
 };

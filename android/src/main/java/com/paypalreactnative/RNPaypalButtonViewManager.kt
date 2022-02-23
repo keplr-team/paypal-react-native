@@ -55,10 +55,12 @@ class RNPaypalButtonViewManager: SimpleViewManager<RNPaypalButtonView> {
     @ReactProp(name = "order")
     fun setOrder(view: RNPaypalButtonView, order: ReadableMap) {
         val referenceId = getValOr(order, "referenceId")
+        val invoiceId = getValOr(order, "invoiceId")
         val amount = getValOr(order, "amount")
         val currency = getValOr(order, "currency")
 
         view.setReferenceId(referenceId)
+        view.setInvoiceId(invoiceId)
         view.setAmountValue(amount)
         view.setCurrencyCode(currency)
     }
