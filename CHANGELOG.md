@@ -1,3 +1,13 @@
+## [0.1.4](https://github.com/keplr-team/paypal-react-native/compare/0.1.3...0.1.4) (2022-02-23)
+
+
+### Bug Fixes
+
+* add invoice_id property ([7107c00](https://github.com/keplr-team/paypal-react-native/commit/7107c00f02d140c0d022620f06e29fe32bc952ba))
+* example to be able to import with @keplr/ ([5416ee4](https://github.com/keplr-team/paypal-react-native/commit/5416ee44660485190cfa5fe1fbfd76caeb82fb52))
+* export initPaypal instead of doing it in PaypalButton ([28d86c8](https://github.com/keplr-team/paypal-react-native/commit/28d86c8d471619ecf39201fd7c0b19657d950bc8))
+* locale in fr-FR on ios ([0a652ad](https://github.com/keplr-team/paypal-react-native/commit/0a652adbd054e9c5ab5984e4072a9412f88c1b42))
+
 ## [0.1.3](https://github.com/keplr-team/paypal-react-native/compare/0.1.2...0.1.3) (2022-02-22)
 
 
