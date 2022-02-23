@@ -1,7 +1,14 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Alert, Platform, SafeAreaView, StyleSheet, View } from 'react-native';
-import { PaypalButton } from 'paypal-react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  View,
+} from 'react-native';
+import { initPaypal, PaypalButton } from '@keplr/paypal-react-native';
 
 const clientId =
   Platform.OS === 'ios'
@@ -13,12 +20,22 @@ const returnUrl =
     : 'com.paypalhello://paypalpay';
 
 export default function App() {
-  return (
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const initialize = async () => {
+      await initPaypal({ clientId, returnUrl, live: false });
+      setTimeout(() => setLoading(false), 1000);
+    };
+    initialize();
+  }, []);
+
+  return loading ? (
+    <ActivityIndicator size="large" style={StyleSheet.absoluteFill} />
+  ) : (
     <SafeAreaView style={styles.container}>
       <View>
         <PaypalButton
           style={{ height: 52, width: 250 }}
-          config={{ clientId, returnUrl, live: false }}
           variant={{
             color: 'white',
             label: 'payWith',
