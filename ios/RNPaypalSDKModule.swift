@@ -50,6 +50,11 @@ class RNPaypalButton : UIView {
         } else {
           self.referenceId = nil
         }
+        if let invoiceId = order["invoiceId"] as? String {
+          self.invoiceId = invoiceId
+        } else {
+          self.invoiceId = nil
+        }
         if let amount = order["amount"] as? String {
           self.amount = amount
         }
@@ -59,6 +64,7 @@ class RNPaypalButton : UIView {
     }
   }
   private var referenceId: String?
+  private var invoiceId: String?
   private var amount: String = "0.0"
   private var currency: String = "EUR"
 
@@ -131,9 +137,10 @@ class RNPaypalButton : UIView {
     let purchaseUnit = PurchaseUnit.init(
       amount: amount,
       referenceId: self.referenceId == nil ? nil : self.referenceId,
+      invoiceId: self.invoiceId == nil ? nil : self.invoiceId,
       shipping: shipping
     )
-    let applicationContext = OrderApplicationContext.init(shippingPreference: OrderApplicationContext.ShippingPreference.setProvidedAddress, userAction: OrderApplicationContext.UserAction.payNow)
+      let applicationContext = OrderApplicationContext.init(locale: "fr-FR", shippingPreference: OrderApplicationContext.ShippingPreference.setProvidedAddress, userAction: OrderApplicationContext.UserAction.payNow)
     let order = OrderRequest(intent: .authorize, purchaseUnits: [purchaseUnit], applicationContext: applicationContext)
     createOrderAction.create(order: order)
   }

@@ -44,6 +44,7 @@ export default function App() {
           }}
           order={{
             referenceId: 'cart id',
+            invoiceId: 'invoice id',
             amount: '100',
             currency: 'EUR',
           }}
