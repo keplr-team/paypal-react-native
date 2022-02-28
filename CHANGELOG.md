@@ -1,3 +1,10 @@
+## [0.1.6](https://github.com/keplr-team/paypal-react-native/compare/0.1.5...0.1.6) (2022-02-28)
+
+
+### Bug Fixes
+
+* revert locale in fr-FR on ios ([15353d4](https://github.com/keplr-team/paypal-react-native/commit/15353d4242f2244887bde0daecb695128c26dc4c))
+
 ## [0.1.5](https://github.com/keplr-team/paypal-react-native/compare/0.1.4...0.1.5) (2022-02-23)
 
 
