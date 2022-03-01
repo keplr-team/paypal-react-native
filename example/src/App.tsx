@@ -17,7 +17,7 @@ const clientId =
 const returnUrl =
   Platform.OS === 'ios'
     ? 'org.reactjs.native.example.paypalhello://paypalpay'
-    : 'com.paypalhello://paypalpay';
+    : 'com.example.paypalreactnative://paypalpay';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
