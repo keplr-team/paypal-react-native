@@ -1,3 +1,10 @@
+## [0.1.7](https://github.com/keplr-team/paypal-react-native/compare/0.1.6...0.1.7) (2022-03-02)
+
+
+### Bug Fixes
+
+* unexpected error from the android sdk when cancelling paypal paiement ([9967e75](https://github.com/keplr-team/paypal-react-native/commit/9967e7543aef3d6ed4b68d96e4a7adb79a638067))
+
 ## [0.1.6](https://github.com/keplr-team/paypal-react-native/compare/0.1.5...0.1.6) (2022-02-28)
 
 
