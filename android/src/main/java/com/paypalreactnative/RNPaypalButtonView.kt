@@ -74,7 +74,10 @@ class RNPaypalButtonView: LinearLayout {
                 onApproveNativeEvent(approval.data.orderId)
             },
             onError = OnError { errorInfo ->
-                onErrorNativeEvent(errorInfo.error.localizedMessage)
+                // Unexpected error returned by the android sdk when closing the paypal subview
+                if (errorInfo.error.localizedMessage !== "Return URL is null") {
+                  onErrorNativeEvent(errorInfo.error.localizedMessage)
+                }
             }
         );
 
