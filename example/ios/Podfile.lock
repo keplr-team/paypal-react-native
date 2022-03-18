@@ -74,7 +74,7 @@ PODS:
   - glog (0.3.5)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.180)
-  - paypal-react-native (0.1.3):
+  - paypal-react-native (0.1.7):
     - PayPalCheckout
     - React-Core
   - PayPalCheckout (0.84.0)
@@ -502,7 +502,7 @@ SPEC CHECKSUMS:
   glog: 5337263514dd6f09803962437687240c5dc39aa4
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
-  paypal-react-native: 6283e79163e4f4ebec59b3c01faedab05661a5e2
+  paypal-react-native: 8faaf45b4e76f6f6439a3e9803ce53dbb50bb508
   PayPalCheckout: 7154d192c2d729d6c127b8601684fc483fe71d7d
   RCT-Folly: a21c126816d8025b547704b777a2ba552f3d9fa9
   RCTRequired: 4bf86c70714490bca4bf2696148638284622644b
