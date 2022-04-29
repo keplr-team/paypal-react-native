@@ -1,6 +1,7 @@
 package com.paypalreactnative
 
 import android.os.Build
+import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
@@ -20,6 +21,11 @@ class RNPaypalModule: ReactContextBaseJavaModule {
     @RequiresApi(Build.VERSION_CODES.M)
     @ReactMethod
     fun setup(clientId: String, returnUrl: String, isLive: Boolean) {
+        if (!this.context.hasCurrentActivity()) {
+            Log.e("E_NO_ACTIVITY", "Try to setup the PaypalCheckout while not attached to an Activity.")
+            return;
+        }
+
         val environment = if (isLive) Environment.LIVE else Environment.SANDBOX;
         val config = CheckoutConfig(this.context.currentActivity!!.application, clientId, environment, returnUrl, CurrencyCode.EUR, UserAction.PAY_NOW);
         PayPalCheckout.setConfig(config)
