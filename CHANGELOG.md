@@ -1,3 +1,10 @@
+## [0.1.8](https://github.com/keplr-team/paypal-react-native/compare/0.1.7...0.1.8) (2022-04-29)
+
+
+### Bug Fixes
+
+* log when no activity in setup ([8df6a9f](https://github.com/keplr-team/paypal-react-native/commit/8df6a9ff076dcc37b2ff98951ebde82d04da156f))
+
 ## [0.1.7](https://github.com/keplr-team/paypal-react-native/compare/0.1.6...0.1.7) (2022-03-02)
 
 
