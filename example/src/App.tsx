@@ -10,14 +10,10 @@ import {
 } from 'react-native';
 import { initPaypal, PaypalButton } from '@keplr/paypal-react-native';
 
-const clientId =
-  Platform.OS === 'ios'
-    ? 'AdBbb9q_DHJaUhnH5QyJ5LJNlhLxFicOOFp9ArVKmcGqIF1pNabw5uOHU-eP3T5MmeHLY9IuL0GvN1bz'
-    : 'AeMqo0VZlBGYYT2Z8YVYLHD0OzGICs_dKuZFn2hqkVMckTji4f4vwABZMfB94_p2ajnZZromQdQTcv5L';
-const returnUrl =
-  Platform.OS === 'ios'
-    ? 'org.reactjs.native.example.paypalhello://paypalpay'
-    : 'com.example.paypalreactnative://paypalpay';
+// Only for IOS, For Android, env store in .env
+const clientId = 'AdBbb9q_DHJaUhnH5QyJ5LJNlhLxFicOOFp9ArVKmcGqIF1pNabw5uOHU-eP3T5MmeHLY9IuL0GvN1bz'
+const returnUrl = 'org.reactjs.native.example.paypalhello://paypalpay'
+    
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +22,13 @@ export default function App() {
       await initPaypal({ clientId, returnUrl, live: false });
       setTimeout(() => setLoading(false), 1000);
     };
-    initialize();
+
+    // Only for IOS , for Android already initialized in OnCreate() 
+    if (Platform.OS === 'ios') {
+      initialize()
+    }else{
+      setLoading(false)
+    }
   }, []);
 
   return loading ? (
