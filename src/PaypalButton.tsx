@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeModules, requireNativeComponent } from 'react-native';
+import { NativeModules, Platform, requireNativeComponent } from 'react-native';
 import type {
   PaypalButtonOrder,
   PaypalButtonShipping,
@@ -25,7 +25,8 @@ export const initPaypal = async ({
   returnUrl,
   live,
 }: PaypalConfig) => {
-  return await NativeModules.RNPaypal.setup(clientId, returnUrl, live);
+  // Run setup only for IOS, ANDROID setup occurs at the initialization of the module
+  if(Platform.OS === "ios")  await NativeModules.RNPaypal.setup(clientId, returnUrl, live)
 };
 
 export const PaypalButton = (props: Props) => <NativePaypalButton {...props} />;

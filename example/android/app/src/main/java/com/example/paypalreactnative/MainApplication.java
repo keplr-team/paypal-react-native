@@ -2,6 +2,10 @@ package com.example.paypalreactnative;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -10,6 +14,8 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import com.paypalreactnative.RNPaypalModule;
 import com.paypalreactnative.RNPaypalPackage;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -42,11 +48,13 @@ public class MainApplication extends Application implements ReactApplication {
     return mReactNativeHost;
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.M)
   @Override
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
+    RNPaypalModule.Companion.setup(this, BuildConfig.PAYPAL_CLIENT_ID, BuildConfig.PAYPAL_RETURN_URL, BuildConfig.ENV);
   }
 
   /**
