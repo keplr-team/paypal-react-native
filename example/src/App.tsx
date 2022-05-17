@@ -9,11 +9,11 @@ import {
   View,
 } from 'react-native';
 import { initPaypal, PaypalButton } from '@keplr/paypal-react-native';
+import Config from "react-native-config";
 
 // Only for IOS, For Android, env store in .env
-const clientId = 'AdBbb9q_DHJaUhnH5QyJ5LJNlhLxFicOOFp9ArVKmcGqIF1pNabw5uOHU-eP3T5MmeHLY9IuL0GvN1bz'
-const returnUrl = 'org.reactjs.native.example.paypalhello://paypalpay'
-    
+const clientId = Config.PAYPAL_CLIENT_ID
+const returnUrl = Config.PAYPAL_RETURN_URL
 
 export default function App() {
   const [loading, setLoading] = useState(true);
