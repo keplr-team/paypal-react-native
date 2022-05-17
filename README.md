@@ -11,6 +11,23 @@ npm install @keplr/paypal-react-native
 ```
 
 ### Requirements
+
+#### General 
+1. Install `react-native-config`
+
+```
+yarn add `react-native-config`
+```
+
+2. Create an `.env` file to your react-native project root
+
+Fill it with : 
+```
+ENV=local|production|development
+PAYPAL_CLIENT_ID=Your Client ID
+PAYPAL_RETURN_URL=Your return URL
+```
+
 #### Android
 
 1. Add the required repository to the `android/build.gradle` (cf : https://developer.paypal.com/sdk/in-app/android/#link-addthesdktoyourapp).
@@ -42,6 +59,14 @@ allprojects {
 </application>
 ```
 
+3. Android Paypal Initialisation repository
+
+Add at the end of the method `onCreate()` in `MainApplication.java` the following code
+```
+RNPaypalModule.Companion.setup(this, BuildConfig.PAYPAL_CLIENT_ID, BuildConfig.PAYPAL_RETURN_URL, BuildConfig.ENV;
+```
+
+
 #### IOS
 
 - Go in the `ios/` folder and install the pod dependencies :
@@ -52,7 +77,7 @@ or
 arch -x86_64 pod install (for M1)
 ```
 
-## Paypal initialisation
+## Paypal initialisation -- Only for IOS
 
 - Add in your `App.tsx` the call to `initPaypal` :
 
