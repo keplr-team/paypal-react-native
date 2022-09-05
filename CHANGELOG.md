@@ -1,3 +1,10 @@
+## [0.1.10](https://github.com/keplr-team/paypal-react-native/compare/0.1.9...0.1.10) (2022-09-05)
+
+
+### Bug Fixes
+
+* downgrade android sdk to 0.6.1 ([e520d40](https://github.com/keplr-team/paypal-react-native/commit/e520d4016fb10d7f2f6a2dd70493182d7091f9cd))
+
 ## [0.1.9](https://github.com/keplr-team/paypal-react-native/compare/0.1.8...0.1.9) (2022-05-17)
 
 ## [0.1.8](https://github.com/keplr-team/paypal-react-native/compare/0.1.7...0.1.8) (2022-04-29)
