@@ -28,6 +28,8 @@ PAYPAL_CLIENT_ID=Your Client ID
 PAYPAL_RETURN_URL=Your return URL
 ```
 
+> **Using Expo? jump to [Expo](#expo)**
+
 #### Android
 
 1. Add the required repository to the `android/build.gradle` (cf : https://developer.paypal.com/sdk/in-app/android/#link-addthesdktoyourapp).
@@ -76,6 +78,36 @@ pod install
 or
 arch -x86_64 pod install (for M1)
 ```
+
+#### Expo
+
+- Add `@keplr/paypal-react-native` to your expo plugins (in app.config or app.json) :
+```ts
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  //...
+  plugins: [
+    //...
+    [
+      "@keplr/paypal-react-native",
+      {
+        "paypalClientId": PAYPAL_CLIENT_ID,
+        "paypalReturnUrl": PAYPAL_RETURN_URL,
+        "env": ENV
+      }
+    ]
+  ],
+  extra: {
+    paypalClientId: PAYPAL_CLIENT_ID,
+    paypalReturnUrl: PAYPAL_RETURN_URL,
+    env: ENV,
+  }
+});
+```
+- After running `expo prebuild`, android native files should be properly updated. For example, at the end of the method `onCreate()` in `MainApplication.java` :
+```
+RNPaypalModule.Companion.setup(this, BuildConfig.PAYPAL_CLIENT_ID, BuildConfig.PAYPAL_RETURN_URL, BuildConfig.ENV;
+```
+
 
 ## Paypal initialisation -- Only for IOS
 
