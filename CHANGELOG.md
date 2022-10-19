@@ -1,3 +1,5 @@
+## [0.2.1](https://github.com/keplr-team/paypal-react-native/compare/0.2.0...0.2.1) (2022-10-19)
+
 # [0.2.0](https://github.com/keplr-team/paypal-react-native/compare/0.1.10...0.2.0) (2022-10-19)
 
 
