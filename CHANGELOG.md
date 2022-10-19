@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/keplr-team/paypal-react-native/compare/0.2.2...0.2.3) (2022-10-19)
+
+
+### Bug Fixes
+
+* use proper type path ([b3aea97](https://github.com/keplr-team/paypal-react-native/commit/b3aea974b0410283b8f75bd0925585a988de827a))
+
 ## [0.2.2](https://github.com/keplr-team/paypal-react-native/compare/0.2.1...0.2.2) (2022-10-19)
 
 
