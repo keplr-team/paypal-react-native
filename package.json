@@ -13,7 +13,10 @@
     "android",
     "ios",
     "cpp",
+    "plugin",
+    "!plugin/src",
     "paypal-react-native.podspec",
+    "app.plugin.js",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -77,7 +80,8 @@
     "preset": "react-native",
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
+      "<rootDir>/lib/",
+      "<rootDir>/plugin/build/"
     ]
   },
   "commitlint": {
@@ -124,7 +128,8 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "plugin/build/"
   ],
   "prettier": {
     "quoteProps": "consistent",
