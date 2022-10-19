@@ -9,11 +9,11 @@ import {
   View,
 } from 'react-native';
 import { initPaypal, PaypalButton } from '@keplr/paypal-react-native';
-import Config from "react-native-config";
+import Config from 'react-native-config';
 
 // Only for IOS, For Android, env store in .env
-const clientId = Config.PAYPAL_CLIENT_ID
-const returnUrl = Config.PAYPAL_RETURN_URL
+const clientId = Config.PAYPAL_CLIENT_ID;
+const returnUrl = Config.PAYPAL_RETURN_URL;
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -23,11 +23,11 @@ export default function App() {
       setTimeout(() => setLoading(false), 1000);
     };
 
-    // Only for IOS , for Android already initialized in OnCreate() 
+    // Only for IOS , for Android already initialized in OnCreate()
     if (Platform.OS === 'ios') {
-      initialize()
-    }else{
-      setLoading(false)
+      initialize();
+    } else {
+      setLoading(false);
     }
   }, []);
 

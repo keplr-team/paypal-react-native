@@ -26,7 +26,8 @@ export const initPaypal = async ({
   live,
 }: PaypalConfig) => {
   // Run setup only for IOS, ANDROID setup occurs at the initialization of the module
-  if(Platform.OS === "ios")  await NativeModules.RNPaypal.setup(clientId, returnUrl, live)
+  if (Platform.OS === 'ios')
+    await NativeModules.RNPaypal.setup(clientId, returnUrl, live);
 };
 
 export const PaypalButton = (props: Props) => <NativePaypalButton {...props} />;
