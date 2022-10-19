@@ -9,7 +9,6 @@ import {
   withProjectBuildGradle,
   withAndroidManifest,
   withMainApplication,
-  withAppBuildGradle,
 } from '@expo/config-plugins';
 import {
   createGeneratedHeaderComment,
@@ -22,7 +21,7 @@ const pkg = require('../../package.json');
 export type Props = {
   paypalClientId: string;
   paypalReturnUrl: string;
-  env: string
+  env: string;
 };
 
 /**
@@ -30,18 +29,18 @@ export type Props = {
  */
 const withPaypalMainApplication: ConfigPlugin<Props> = (
   config,
-  { paypalClientId, paypalReturnUrl, env },
+  { paypalClientId, paypalReturnUrl, env }
 ) => {
-  return withMainApplication(config, async (config) => {
-    config.modResults.contents = modifyMainApplication({
-      contents: config.modResults.contents,
+  return withMainApplication(config, async (c) => {
+    c.modResults.contents = modifyMainApplication({
+      contents: c.modResults.contents,
       paypalClientId,
       paypalReturnUrl,
       env,
-      packageName: AndroidConfig.Package.getPackage(config),
+      packageName: AndroidConfig.Package.getPackage(c),
     });
 
-    return config;
+    return c;
   });
 };
 
@@ -59,21 +58,27 @@ const modifyMainApplication = ({
   packageName: string | null;
 }) => {
   if (!packageName) {
-    throw new Error("Android package not found");
+    throw new Error('Android package not found');
   }
 
   // Add the import line to the top of the file
   const importLine = `import com.paypalreactnative.RNPaypalModule;`;
   if (!contents.includes(importLine)) {
     const packageImport = `package ${packageName};`;
-    contents = contents.replace(`${packageImport}`, `${packageImport}\n${importLine}`);
+    contents = contents.replace(
+      `${packageImport}`,
+      `${packageImport}\n${importLine}`
+    );
   }
 
   // Add the init line in the onCreate method
   const initLine = `RNPaypalModule.Companion.setup(this, "${paypalClientId}", "${paypalReturnUrl}", "${env}");`;
   if (!contents.includes(initLine)) {
     const soLoaderLine = `SoLoader.init(this, /* native exopackage */ false);`;
-    contents = contents.replace(`${soLoaderLine}`, `${soLoaderLine}\n\t\t${initLine}\n`);
+    contents = contents.replace(
+      `${soLoaderLine}`,
+      `${soLoaderLine}\n\t\t${initLine}\n`
+    );
   }
 
   return contents;
@@ -82,24 +87,21 @@ const modifyMainApplication = ({
 /**
  * Set tools:replace="android:allowBackup" in AndroidManifest.xml
  */
-const withPaypalAndroidManifest: ConfigPlugin<{}> = (
-  config
-) => {
-  return withAndroidManifest(config, async (config) => {
-      config.modResults.manifest.$ = {
-        ...config.modResults.manifest.$,
-        "xmlns:tools": "http://schemas.android.com/tools",
+const withPaypalAndroidManifest: ConfigPlugin<{}> = (config) => {
+  return withAndroidManifest(config, async (c) => {
+    c.modResults.manifest.$ = {
+      ...c.modResults.manifest.$,
+      'xmlns:tools': 'http://schemas.android.com/tools',
+    };
+
+    if (c.modResults.manifest.application?.[0]) {
+      c.modResults.manifest.application[0].$ = {
+        ...c.modResults.manifest.application[0].$,
+        'tools:replace': 'android:allowBackup',
       };
+    }
 
-      if (config.modResults.manifest.application?.[0]) {
-        config.modResults.manifest.application[0].$ = {
-          ...config.modResults.manifest.application[0].$,
-          "tools:replace": "android:allowBackup",
-        };
-      }
-
-
-    return config;
+    return c;
   });
 };
 
@@ -107,13 +109,15 @@ const withPaypalAndroidManifest: ConfigPlugin<{}> = (
  * Add required repository to android/build.gradle
  */
 const withPaypalProjectBuildGradle: ConfigPlugin<{}> = (config) => {
-  return withProjectBuildGradle(config, async (config) => {
-    if (config.modResults.language === 'groovy') {
-      config.modResults.contents = addPaypalRepo(config.modResults.contents).contents;
+  return withProjectBuildGradle(config, async (c) => {
+    if (c.modResults.language === 'groovy') {
+      c.modResults.contents = addPaypalRepo(c.modResults.contents).contents;
     } else {
-      throw new Error('Cannot add paypal repo because the build.gradle is not groovy');
+      throw new Error(
+        'Cannot add paypal repo because the build.gradle is not groovy'
+      );
     }
-    return config;
+    return c;
   });
 };
 
@@ -180,7 +184,7 @@ function appendContents({
  */
 const withPaypalAndroid: ConfigPlugin<Props> = (
   config,
-  { paypalClientId, paypalReturnUrl, env },
+  { paypalClientId, paypalReturnUrl, env }
 ) => {
   config = withPaypalProjectBuildGradle(config, {});
   config = withPaypalAndroidManifest(config, {});
