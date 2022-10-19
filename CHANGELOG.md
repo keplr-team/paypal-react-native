@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/keplr-team/paypal-react-native/compare/0.1.10...0.2.0) (2022-10-19)
+
+
+### Features
+
+* add expo plugin ([6d6f839](https://github.com/keplr-team/paypal-react-native/commit/6d6f83966566021a644542f5f616e676cc94431a))
+
 ## [0.1.10](https://github.com/keplr-team/paypal-react-native/compare/0.1.9...0.1.10) (2022-09-05)
 
 
