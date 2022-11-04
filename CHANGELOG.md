@@ -1,3 +1,10 @@
+## [0.2.5](https://github.com/keplr-team/paypal-react-native/compare/0.2.4...0.2.5) (2022-11-04)
+
+
+### Bug Fixes
+
+* add proguard rule in android module ([2aa6133](https://github.com/keplr-team/paypal-react-native/commit/2aa61336ee115e998646dfcc16e871820318f364))
+
 ## [0.2.4](https://github.com/keplr-team/paypal-react-native/compare/0.2.3...0.2.4) (2022-10-19)
 
 ## [0.2.3](https://github.com/keplr-team/paypal-react-native/compare/0.2.2...0.2.3) (2022-10-19)
