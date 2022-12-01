@@ -1,3 +1,10 @@
+## [0.2.6](https://github.com/keplr-team/paypal-react-native/compare/0.2.5...0.2.6) (2022-12-01)
+
+
+### Bug Fixes
+
+* Implement last version of cardinalcommerce to avoid issue with playstore rules ([273ed50](https://github.com/keplr-team/paypal-react-native/commit/273ed5013d25a900778fb9850a9d8a2ff4005817))
+
 ## [0.2.5](https://github.com/keplr-team/paypal-react-native/compare/0.2.4...0.2.5) (2022-11-04)
 
 
