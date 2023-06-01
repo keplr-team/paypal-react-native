@@ -1,3 +1,10 @@
+## [0.2.7](https://github.com/keplr-team/paypal-react-native/compare/0.2.6...0.2.7) (2023-06-01)
+
+
+### Bug Fixes
+
+* bump version expo-config-plugins ([e52bf65](https://github.com/keplr-team/paypal-react-native/commit/e52bf65f1e744c637dfbc7eab0d990a65d178d53))
+
 ## [0.2.6](https://github.com/keplr-team/paypal-react-native/compare/0.2.5...0.2.6) (2022-12-01)
 
 
