@@ -133,4 +133,5 @@ dependencies {
     exclude group: 'org.jfrog.cardinalcommerce.gradle', module: 'cardinalmobilesdk'
   }
   implementation 'org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.7-2'
+  implementation 'com.paypal.android.sdk:data-collector:3.21.0'
 }
