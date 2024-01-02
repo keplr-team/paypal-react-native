@@ -1,3 +1,10 @@
+## [0.2.8](https://github.com/keplr-team/paypal-react-native/compare/0.2.7...0.2.8) (2024-01-02)
+
+
+### Bug Fixes
+
+* add data collector dependency ([8818884](https://github.com/keplr-team/paypal-react-native/commit/8818884f3bedb9f5218432ff479aa19b73f18a58))
+
 ## [0.2.7](https://github.com/keplr-team/paypal-react-native/compare/0.2.6...0.2.7) (2023-06-01)
 
 
