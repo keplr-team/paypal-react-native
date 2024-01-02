@@ -23,7 +23,7 @@ class RNPaypalModule: ReactContextBaseJavaModule {
     @RequiresApi(Build.VERSION_CODES.M)
     fun setup(application: Application, clientId: String, returnUrl: String, env: String) {
       val environment = if (env === "production") Environment.LIVE else Environment.SANDBOX;
-      val config = CheckoutConfig(application, clientId, environment, returnUrl, CurrencyCode.EUR, UserAction.PAY_NOW);
+      val config = CheckoutConfig(application = application, clientId = clientId, environment = environment, returnUrl = returnUrl, currencyCode = CurrencyCode.EUR, userAction = UserAction.PAY_NOW)
       PayPalCheckout.setConfig(config)
     }
   }

@@ -129,7 +129,8 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation('com.paypal.checkout:android-sdk:0.6.1'){
+  implementation 'com.paypal.android.sdk:data-collector:3.21.0'
+  implementation('com.paypal.checkout:android-sdk:1.2.0'){
     exclude group: 'org.jfrog.cardinalcommerce.gradle', module: 'cardinalmobilesdk'
   }
   implementation 'org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.7-2'

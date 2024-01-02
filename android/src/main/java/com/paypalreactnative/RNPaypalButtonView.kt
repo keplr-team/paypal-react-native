@@ -3,6 +3,7 @@ package com.paypalreactnative
 import android.os.Build
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.uimanager.ThemedReactContext
@@ -15,7 +16,6 @@ import com.facebook.react.bridge.WritableMap
 import com.facebook.react.uimanager.events.RCTEventEmitter
 import com.paypal.checkout.createorder.*
 import com.paypal.checkout.order.*
-
 
 class RNPaypalButtonView: LinearLayout {
     private var context: ThemedReactContext
@@ -36,7 +36,7 @@ class RNPaypalButtonView: LinearLayout {
     private var countryCode: String = "FR"
 
     // paypal button
-    private lateinit var paypalButton: PayPalButton;
+    private lateinit var paypalButton: PaymentButtonContainer;
 
     @RequiresApi(Build.VERSION_CODES.M)
     constructor(context: ThemedReactContext) : super(context) {
@@ -45,29 +45,70 @@ class RNPaypalButtonView: LinearLayout {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun setupButtonView() {
-        val inflater = LayoutInflater.from(context)
-        this.paypalButton = inflater.inflate(R.layout.paypal_layout, null, false) as PayPalButton
+        // val inflater = LayoutInflater.from(context)
+        // this.paypalButton = inflater.inflate(R.layout.paypal_layout, null, false)
 
-        this.paypalButton.color = this.color
-        this.paypalButton.label = this.label
-        this.paypalButton.size = this.size
-        this.paypalButton.shape = this.shape
+        this.paypalButton = PaymentButtonContainer(context);
+
+        this.paypalButton.paypalButtonColor = this.color
+        this.paypalButton.paypalButtonLabel = this.label
+        this.paypalButton.paypalButtonSize = this.size
+        this.paypalButton.paypalButtonShape = this.shape
+        this.paypalButton.paypalButtonEnabled = true
+
+        // this.paypalButton.onEk =
+        // { buttonEligibilityStatus: PaymentButtonEligibilityStatus ->
+        //     Log.v("PaypalButton", "OnEligibilityStatusChanged")
+        //     Log.d("PaypalButton", "Button eligibility status: $buttonEligibilityStatus")
+        // }
+
 
         this.paypalButton.setup(
             createOrder = CreateOrder { createOrderActions ->
-                val order =
-                    Order(
-                        OrderIntent.AUTHORIZE,
-                        AppContext(userAction = UserAction.PAY_NOW, shippingPreference = ShippingPreference.SET_PROVIDED_ADDRESS),
-                        listOf(
-                            PurchaseUnit(
-                                referenceId = this.referenceId,
-                                invoiceId = this.invoiceId,
-                                amount = Amount(currencyCode = this.currencyCode, value = this.amountValue),
-                                shipping = Shipping(Address(addressLine1 = this.address, adminArea2 = this.city, postalCode = this.postalCode, countryCode = this.countryCode))
+                // val order =
+                //     Order(
+                //         OrderIntent.AUTHORIZE,
+                //         AppContext(userAction = UserAction.PAY_NOW, shippingPreference = ShippingPreference.SET_PROVIDED_ADDRESS),
+                //         listOf(
+                //             PurchaseUnit(
+                //                 referenceId = this.referenceId,
+                //                 invoiceId = this.invoiceId,
+                //                 amount = Amount(currencyCode = this.currencyCode, value = this.amountValue),
+                //                 shipping = Shipping(Address(addressLine1 = this.address, adminArea2 = this.city, postalCode = this.postalCode, countryCode = this.countryCode))
+                //             )
+                //         )
+                //     )
+                val order = OrderRequest.Builder()
+                    .appContext(AppContext(userAction = UserAction.PAY_NOW, shippingPreference = ShippingPreference.SET_PROVIDED_ADDRESS))
+                    .intent(OrderIntent.AUTHORIZE)
+                    .purchaseUnitList(
+                            listOf(
+                                    PurchaseUnit.Builder()
+                                            .referenceId(this.referenceId)
+                                            .invoiceId(this.invoiceId)
+                                            .amount(
+                                                Amount.Builder()
+                                                    .value(this.amountValue)
+                                                    .currencyCode(this.currencyCode)
+                                                    .build()
+                                            )
+                                            .shipping(
+                                                Shipping.Builder()
+                                                    .address(
+                                                        Address.Builder()
+                                                        .addressLine1(this.address)
+                                                        .adminArea2(this.city)
+                                                        .postalCode(this.postalCode)
+                                                        .countryCode(this.countryCode)
+                                                        .build()
+                                                    )
+                                                    .build()
+                                            )
+                                            .build()
                             )
-                        )
                     )
+                    .build()
+
                 createOrderActions.create(order)
             },
             onApprove = OnApprove { approval ->
